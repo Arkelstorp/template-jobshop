@@ -1,0 +1,36 @@
+!ResourceOrder schedule nÂ°1 :
+/the 0th task of the 0th job starts at time : 0
+/the 1th task of the 0th job starts at time : 3
+/the 2th task of the 0th job starts at time : 6
+/the 0th task of the 1th job starts at time : 0
+/the 1th task of the 1th job starts at time : 3
+/the 2th task of the 1th job starts at time : 8
+
+!ResourceOrder schedule nÂ°2 :
+/the 0th task of the 0th job starts at time : 0
+/the 1th task of the 0th job starts at time : 3
+/the 2th task of the 0th job starts at time : 6
+/the 0th task of the 1th job starts at time : 6
+/the 1th task of the 1th job starts at time : 8
+0the 2th task of the 1th job starts at time : 10
+
+JobNumbers schedule nÂ°1 :
+/the 0th task of the 0th job starts at time : 0
+/the 1th task of the 0th job starts at time : 3
+/the 2th task of the 0th job starts at time : 6
+/the 0th task of the 1th job starts at time : 0
+/the 1th task of the 1th job starts at time : 3
+/the 2th task of the 1th job starts at time : 8
+
+[0, 1, 1, 0, 0, 1]
+[0, 1, 0, 1, 0, 1]
+JobNumbers schedule nÂ°2 :
+/the 0th task of the 0th job starts at time : 0
+/the 1th task of the 0th job starts at time : 3
+/the 2th task of the 0th job starts at time : 6
+/the 0th task of the 1th job starts at time : 6
+/the 1th task of the 1th job starts at time : 8
+0the 2th task of the 1th job starts at time : 10
+
+[0, 0, 1, 1, 0, 1]
+[0, 0, 0, 1, 1, 1]

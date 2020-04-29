@@ -1,0 +1,35 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group 'jobshop'
+//version '0.1'
+
+sourceCompatibility = 8
+
+
+application {
+    mainClassName = 'jobshop.Main'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'net.sourceforge.argparse4j:argparse4j:0.8.1' // dependency for parsing command line arguments
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+
+jar {
+    manifest {
+        attributes(
+                'Main-Class': 'jobshop.Main'
+        )
+    }
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+ }
