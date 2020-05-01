@@ -33,6 +33,7 @@ public class Main {
         solvers.put("est_lrpt", new GreedySolver(GreedySolver.Priority.EST_LRPT)) ;
         solvers.put("descent", new DescentSolver()) ;
         solvers.put("taboo", new TabooSolver()) ;
+        solvers.put("annealing", new SimulatedAnnealingSolver());
     }
 
 
@@ -89,7 +90,7 @@ public class Main {
         float[] distances = new float[solversToTest.size()];
 
         try {
-            output.print(  "                         ");;
+            output.print(  "                         ");
             for(String s : solversToTest)
                 output.printf("%-30s", s);
             output.println();
