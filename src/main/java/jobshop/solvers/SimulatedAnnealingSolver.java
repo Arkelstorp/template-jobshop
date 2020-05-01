@@ -20,8 +20,8 @@ public class SimulatedAnnealingSolver extends DescentSolver {
         ResourceOrder currentResourceOrder= new ResourceOrder(schedule) ;
 
         double temperature = currentSpan*0.1 ;
-        double minTemperature = 0.001 ;
-        int nbStep = 10 ;
+        double minTemperature = temperature*0.001 ;
+        int nbStep = 20 ;
         int currentStep = 0 ;
 
         Random ran = new Random();
