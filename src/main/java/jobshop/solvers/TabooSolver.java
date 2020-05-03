@@ -11,15 +11,22 @@ import java.util.List;
 
 public class TabooSolver extends DescentSolver {
 
+    GreedySolver.Priority priority;
+    int maxIter ;
+
+    public TabooSolver(GreedySolver.Priority priority, int maxIter) {
+        this.priority = priority ;
+        this.maxIter = maxIter ;
+    }
+
     @Override
     public Result solve(Instance instance, long deadline) {
 
         int[][] sTaboo = new int[instance.numJobs*instance.numTasks][instance.numJobs*instance.numTasks] ;
         int k = 0 ;
-        int maxIter = 100 ;
-        int dureeTaboo = 2 ;
+        int dureeTaboo = 10 ;
 
-        GreedySolver greedy = new GreedySolver(GreedySolver.Priority.SPT) ;
+        GreedySolver greedy = new GreedySolver(priority) ;
         Schedule schedule = greedy.solve(instance, deadline).schedule ;
 
         int currentSpan = schedule.makespan() ;

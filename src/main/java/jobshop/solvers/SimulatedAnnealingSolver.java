@@ -10,18 +10,27 @@ import java.util.*;
 
 public class SimulatedAnnealingSolver extends DescentSolver {
 
+    GreedySolver.Priority priority ;
+    int nbStep ;
+    double mulTemperature ;
+
+    public SimulatedAnnealingSolver(GreedySolver.Priority priority, int nbStep, double mulTemperature) {
+        this.priority = priority ;
+        this.nbStep = nbStep ;
+        this.mulTemperature = mulTemperature ;
+    }
+
     @Override
     public Result solve(Instance instance, long deadline) {
 
-        GreedySolver greedy = new GreedySolver(GreedySolver.Priority.SPT) ;
+        GreedySolver greedy = new GreedySolver(priority) ;
         Schedule schedule = greedy.solve(instance, deadline).schedule ;
 
         int currentSpan = schedule.makespan() ;
         ResourceOrder currentResourceOrder= new ResourceOrder(schedule) ;
 
-        double temperature = currentSpan*0.1 ;
-        double minTemperature = temperature*0.001 ;
-        int nbStep = 20 ;
+        double temperature = currentSpan*mulTemperature;
+        double minTemperature = 0.1 ;
         int currentStep = 0 ;
 
         Random ran = new Random();

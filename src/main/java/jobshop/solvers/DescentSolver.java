@@ -12,6 +12,15 @@ import java.util.List;
 
 public class DescentSolver implements Solver {
 
+    GreedySolver.Priority priority ;
+
+    public DescentSolver(GreedySolver.Priority priority) {
+        this.priority = priority ;
+    }
+
+    public DescentSolver() {
+    }
+
     /** A block represents a subsequence of the critical path such that all tasks in it execute on the same machine.
      * This class identifies a block in a ResourceOrder representation.
      *
@@ -97,7 +106,7 @@ public class DescentSolver implements Solver {
     @Override
     public Result solve(Instance instance, long deadline) {
 
-        GreedySolver greedy = new GreedySolver(GreedySolver.Priority.SPT) ;
+        GreedySolver greedy = new GreedySolver(priority) ;
         Schedule schedule = greedy.solve(instance, deadline).schedule ;
 
         int currentSpan = schedule.makespan() ;
